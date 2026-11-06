@@ -21,38 +21,38 @@
 # 2. 1 step + 2 steps
 # 3. 2 steps + 1 step
 
-# def climb_stairs(n, memo=None):
-#     if n <= 3:
-#         return n
-
-#     # 1. Retrieve or create the memo
-#     memo = memo if memo is not None else {}
-
-#     # 2. Check the memo for our value, if it exists, return it
-#     if n in memo:
-#         return memo[n]
-
-#     # 3. Calculate our result
-#     result = climb_stairs(n-1, memo) + climb_stairs(n-2, memo)
-#     memo[n] = result
-
-#     # Return the result
-#     return result
-
-
-# Other solution (non-recursive)
 def climb_stairs(n, memo=None):
     if n <= 3:
         return n
 
-    memo = [0, 1, 2]
-    i = 3
+    # 1. Retrieve or create the memo
+    memo = memo if memo is not None else {}
 
-    while i <= n:
-        memo.append(memo[i - 1] + memo[i - 2])
-        i += 1
+    # 2. Check the memo for our value, if it exists, return it
+    if n in memo:
+        return memo[n]
 
-    return memo[n]
+    # 3. Calculate our result
+    result = climb_stairs(n-1, memo) + climb_stairs(n-2, memo)
+    memo[n] = result
+
+    # Return the result
+    return result
+
+
+# Other solution (non-recursive)
+# def climb_stairs(n, memo=None):
+#     if n <= 3:
+#         return n
+
+#     memo = [0, 1, 2]
+#     i = 3
+
+#     while i <= n:
+#         memo.append(memo[i - 1] + memo[i - 2])
+#         i += 1
+
+#     return memo[n]
 
 
 
